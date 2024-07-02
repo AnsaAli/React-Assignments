@@ -1,23 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const missedGoal = (
-    <h1>Missed it </h1>
-)
-const successGoal = (
-    <h2>Got it</h2>
+//React list
+const Cars=(props)=>(
+    <li>This cars is in {props.brandName} brand.</li>
 )
 
-const Result = (props) => {
+function Garage(){
+    const nameOfCars=['Abc','Xyz']
 
-    const isGoal = props.isGoal;
-
-    if (isGoal) {
-      return  successGoal 
-    } else {
-        return missedGoal 
-    }
+    return(
+        <>
+        <h1>Cars brand names:</h1>
+        <ul>
+            {nameOfCars.map((car)=> <Cars brandName={car}/>)}
+        </ul>
+        </>
+    )
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<Result isGoal={true} />)
+const root= ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Garage/>)
